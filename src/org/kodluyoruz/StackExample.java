@@ -16,4 +16,10 @@ public class StackExample {
         stack.pop();
         System.out.println("Get Value: "+stack.peek().toString());
     }
+    synchronized void showStack(){
+        for (Object number:stack) {
+            Integer integer=(Integer) number;
+            System.out.println("Numbers in stack : "+integer);
+        }
+    }
 }

@@ -11,6 +11,7 @@ public class Main {
         Thread thread1=new Thread(new Runnable() {
             @Override
             public void run() {
+                System.out.println("Thread1 is running");
                 for (int i=1;i<=5;i++){
                     stackExample.addItem(i*10);
                 }
@@ -19,6 +20,7 @@ public class Main {
         Thread thread2=new Thread(new Runnable() {
             @Override
             public void run() {
+                System.out.println("Thread2 is running");
                 for (int i=1;i<=5;i++){
                     stackExample.addItem(i*5);
                 }
@@ -27,6 +29,7 @@ public class Main {
         Thread thread3=new Thread(new Runnable() {
             @Override
             public void run() {
+                System.out.println("Thread3 is running");
                 for (int i=1;i<=5;i++){
                     stackExample.addItem(i*3);
                 }
@@ -36,26 +39,45 @@ public class Main {
         Thread thread4=new Thread(new Runnable() {
             @Override
             public void run() {
+                System.out.println("Thread4 is running");
                 stackExample.pullItem();
             }
         });
         Thread thread5=new Thread(new Runnable() {
             @Override
             public void run() {
+                System.out.println("Thread5 is running");
                 stackExample.pullItem();
             }
         });
         Thread thread6=new Thread(new Runnable() {
             @Override
             public void run() {
+                System.out.println("Thread6 is running");
                 stackExample.pullItem();
             }
         });
         Thread thread7=new Thread(new Runnable() {
             @Override
             public void run() {
+                System.out.println("Thread7 is running");
                 stackExample.pullItem();
             }
+        });
+        Thread thread8=new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Thread8 is running");
+                stackExample.showStack();
+            }
+        });
+        Thread thread9=new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Thread9 is running");
+                stackExample.showStack();
+            }
+
         });
         thread1.start();
         thread2.start();
@@ -64,6 +86,8 @@ public class Main {
         thread5.start();
         thread6.start();
         thread7.start();
+        thread8.start();
+        thread9.start();
         try {
             thread1.join();
             thread2.join();
@@ -72,9 +96,11 @@ public class Main {
             thread5.join();
             thread6.join();
             thread7.join();
+            thread8.join();
+            thread9.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
+        System.out.println("Main thread is terminating...");
     }
 }
